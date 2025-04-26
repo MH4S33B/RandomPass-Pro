@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RandomPass Pro | Cyberpunk Password Generator</title>
+    <link rel="stylesheet" href="styles/cyberpunk.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="notification-container"></div>
+    <div class="cyberpunk-container">
+        <header class="cyberpunk-header">
+            <h1 class="cyberpunk-title glitch" data-text="RandomPass Pro">RandomPass Pro</h1>
+            <p class="cyberpunk-subtitle">// Advanced Password Generator</p>
+            <div class="social-links">
+                <a href="/cdn-cgi/l/email-protection#2c41444d5f49494e5e4d464d1e1c1c1a6c4b414d4540024f4341" class="social-icon" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mhaseeb211/" target="_blank" class="social-icon" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/MH4S33B" target="_blank" class="social-icon" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://medium.com/@mh4s33b" target="_blank" class="social-icon" title="Medium">
+                    <i class="fab fa-medium-m"></i>
+                </a>
+            </div>
+        </header>
+        
+        <main class="cyberpunk-main">
+            <div class="cyberpunk-card">
+                <div class="password-display">
+                    <input type="text" id="password-output" class="cyberpunk-input" readonly>
+                    <div class="password-actions">
+                        <button id="copy-btn" class="cyberpunk-btn" title="Copy to clipboard">
+                            <span class="icon">📋</span>
+                        </button>
+                        <button id="visibility-btn" class="cyberpunk-btn" title="Toggle visibility">
+                            <span class="icon">👁️</span>
+                        </button>
+                        <button id="regenerate-btn" class="cyberpunk-btn" title="Regenerate">
+                            <span class="icon">♻️</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="strength-meter">
+                    <div class="strength-bar"></div>
+                    <div class="strength-label">PASSWORD STRENGTH: <span id="strength-text">UNKNOWN</span></div>
+                </div>
+                
+                <div class="controls-section">
+                    <div class="control-group">
+                        <label for="length-slider" class="cyberpunk-label">LENGTH: <span id="length-value">12</span></label>
+                        <input type="range" id="length-slider" min="4" max="32" value="12" class="cyberpunk-slider">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="cyberpunk-checkbox">
+                            <input type="checkbox" id="uppercase" checked>
+                            <span class="checkmark"></span>
+                            UPPERCASE (A-Z)
+                        </label>
+                        <label class="cyberpunk-checkbox">
+                            <input type="checkbox" id="lowercase" checked>
+                            <span class="checkmark"></span>
+                            LOWERCASE (a-z)
+                        </label>
+                        <label class="cyberpunk-checkbox">
+                            <input type="checkbox" id="numbers" checked>
+                            <span class="checkmark"></span>
+                            NUMBERS (0-9)
+                        </label>
+                        <label class="cyberpunk-checkbox">
+                            <input type="checkbox" id="symbols" checked>
+                            <span class="checkmark"></span>
+                            SYMBOLS (@#$%^&*)
+                        </label>
+                        <label class="cyberpunk-checkbox">
+                            <input type="checkbox" id="avoid-similar">
+                            <span class="checkmark"></span>
+                            AVOID SIMILAR CHARS (1,l,0,O)
+                        </label>
+                    </div>
+                    
+                    <button id="generate-btn" class="cyberpunk-btn generate-btn">
+                        <span class="btn-text">GENERATE PASSWORD</span>
+                        <span class="btn-arrow">⟫</span>
+                    </button>
+                </div>
+                
+                <div class="history-section">
+                    <div class="history-header">
+                        <h3 class="history-title">// RECENTLY GENERATED</h3>
+                        <button id="clear-history-btn" class="cyberpunk-btn small-btn" title="Clear history">
+                            <span class="icon">🗑️</span> CLEAR
+                        </button>
+                    </div>
+                    <ul id="password-history" class="history-list"></ul>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="cyberpunk-footer">
+            <p>// SYSTEM SECURE | ENCRYPTION ACTIVE</p>
+            <p class="version">Made by <a href="https://github.com/MH4S33B">MH4S33B</a></p>
+        </footer>
+    </div>
+    
+    <!-- Clear History Confirmation Modal -->
+    <div id="clear-history-modal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to clear all password history?</p>
+            <div class="modal-buttons">
+                <button id="confirm-clear-btn" class="modal-btn">OK</button>
+                <button id="cancel-clear-btn" class="modal-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="scripts/particles.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+(function() {
+    function c() {
+        var b = a.contentDocument || a.contentWindow.document;
+        if (b) {
+            var d = b.createElement('script');
+            d.innerHTML = `
+                window.__CF$cv$params = {
+                    r: '93673502ae004508',
+                    t: 'MTc0NTY4MjMyNC4wMDAwMDA='
+                };
+                var a = document.createElement('script');
+                a.nonce = '';
+                a.src = '/cdn-cgi/challenge-platform/scripts/jsd/main.js';
+                document.getElementsByTagName('head')[0].appendChild(a);
+            `;
+            b.getElementsByTagName('head')[0].appendChild(d);
+        }
+    }
+
+    if (document.body) {
+        var a = document.createElement('iframe');
+        a.height = 1;
+        a.width = 1;
+        a.style.position = 'absolute';
+        a.style.top = 0;
+        a.style.left = 0;
+        a.style.border = 'none';
+        a.style.visibility = 'hidden';
+        document.body.appendChild(a);
+
+        if (document.readyState !== 'loading') {
+            c();
+        } else if (window.addEventListener) {
+            document.addEventListener('DOMContentLoaded', c);
+        } else {
+            var e = document.onreadystatechange || function() {};
+            document.onreadystatechange = function(b) {
+                e(b);
+                if (document.readyState !== 'loading') {
+                    document.onreadystatechange = e;
+                    c();
+                }
+            }
+        }
+    }
+})();
+</script>
+</body>
+</html>
