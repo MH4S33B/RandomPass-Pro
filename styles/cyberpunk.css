@@ -1,0 +1,643 @@
+/* Cyberpunk Theme */
+.cyberpunk-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.cyberpunk-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.cyberpunk-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.cyberpunk-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.glitch {
+    position: relative;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch::before {
+    color: var(--secondary);
+    z-index: -1;
+    animation: glitch-effect 3s infinite;
+}
+
+.glitch::after {
+    color: var(--primary);
+    z-index: -2;
+    animation: glitch-effect 2s infinite reverse;
+}
+
+@keyframes glitch-effect {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+}
+
+.cyberpunk-subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 300;
+    color: var(--secondary);
+    letter-spacing: 1px;
+}
+
+.cyberpunk-main {
+    background-color: rgba(10, 10, 18, 0.8);
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    border-radius: 4px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(5px);
+}
+
+.cyberpunk-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.password-display {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.cyberpunk-input {
+    flex: 1;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--primary);
+    color: var(--light);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px var(--primary);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.cyberpunk-input:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+.password-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.cyberpunk-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--primary);
+    color: var(--light);
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cyberpunk-btn:hover {
+    background-color: rgba(0, 240, 255, 0.1);
+    border-color: var(--secondary);
+    color: var(--primary);
+}
+
+.cyberpunk-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.4), transparent);
+    transition: all 0.5s ease;
+}
+
+.cyberpunk-btn:hover::after {
+    left: 100%;
+}
+
+.generate-btn {
+    padding: 1rem 2rem;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-text {
+    flex: 1;
+    text-align: center;
+}
+
+.btn-arrow {
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.strength-meter {
+    margin-top: 1rem;
+}
+
+.strength-bar {
+    height: 8px;
+    background: linear-gradient(to right, var(--danger), var(--warning), var(--success));
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.strength-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--dark);
+    transform-origin: right;
+    transform: scaleX(0.7);
+    transition: transform 0.5s ease;
+}
+
+.strength-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    color: var(--light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+#strength-text {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.controls-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.cyberpunk-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    color: var(--light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cyberpunk-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    outline: none;
+    margin-top: 0.5rem;
+}
+
+.cyberpunk-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--primary);
+    transition: all 0.3s ease;
+}
+
+.cyberpunk-slider::-webkit-slider-thumb:hover {
+    background: var(--secondary);
+    box-shadow: 0 0 10px var(--secondary);
+}
+
+.cyberpunk-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 30px;
+    user-select: none;
+    color: var(--light);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 300;
+}
+
+.cyberpunk-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+.cyberpunk-checkbox:hover input ~ .checkmark {
+    border-color: var(--secondary);
+}
+
+.cyberpunk-checkbox input:checked ~ .checkmark {
+    background-color: rgba(0, 240, 255, 0.2);
+    border-color: var(--secondary);
+}
+
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.cyberpunk-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.cyberpunk-checkbox .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--secondary);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.history-section {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(0, 240, 255, 0.3);
+    padding-top: 1.5rem;
+}
+
+.history-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.history-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.history-list li {
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-left: 3px solid var(--primary);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-list li:hover {
+    background-color: rgba(0, 240, 255, 0.1);
+    border-left-color: var(--secondary);
+}
+
+.history-list li::after {
+    content: '↗';
+    color: var(--primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.history-list li:hover::after {
+    opacity: 1;
+}
+
+.cyberpunk-footer {
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 300;
+    color: var(--secondary);
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--primary);
+}
+
+.version {
+    margin-top: 0.5rem;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--dark);
+    color: var(--light);
+    text-align: center;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 300;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Notification Styles */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notification {
+    background-color: rgba(10, 10, 18, 0.9);
+    border: 1px solid var(--primary);
+    color: var(--light);
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.notification-success {
+    border-color: var(--success);
+    text-shadow: 0 0 5px var(--success);
+}
+
+.notification-error {
+    border-color: var(--danger);
+    text-shadow: 0 0 5px var(--danger);
+}
+
+.notification-info {
+    border-color: var(--secondary);
+    text-shadow: 0 0 5px var(--secondary);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: rgba(10, 10, 18, 0.95);
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    animation: glitch-effect 0.5s;
+}
+
+.modal-content p {
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--light);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 5px var(--primary);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.modal-btn {
+    padding: 0.5rem 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#confirm-clear-btn {
+    background-color: rgba(0, 240, 255, 0.1);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+#confirm-clear-btn:hover {
+    background-color: rgba(0, 240, 255, 0.3);
+    border-color: var(--secondary);
+    color: var(--light);
+}
+
+#cancel-clear-btn {
+    background-color: rgba(255, 56, 96, 0.1);
+    border: 1px solid var(--danger);
+    color: var(--danger);
+}
+
+#cancel-clear-btn:hover {
+    background-color: rgba(255, 56, 96, 0.3);
+    border-color: var(--danger);
+    color: var(--light);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cyberpunk-container {
+        padding: 1rem;
+    }
+    
+    .cyberpunk-title {
+        font-size: 2rem;
+    }
+    
+    .cyberpunk-main {
+        padding: 1rem;
+    }
+    
+    .password-display {
+        flex-direction: column;
+    }
+    
+    .password-actions {
+        justify-content: flex-end;
+    }
+    
+    #notification-container {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .notification {
+        min-width: 150px;
+        max-width: 250px;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        padding: 1rem;
+        max-width: 300px;
+    }
+
+    .modal-content p {
+        font-size: 1rem;
+    }
+
+    .modal-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* History Header */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.small-btn {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.small-btn .icon {
+    font-size: 0.9rem;
+}
+
+/* Delete button specific styles */
+#clear-history-btn {
+    background-color: rgba(255, 56, 96, 0.1);
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+#clear-history-btn:hover {
+    background-color: rgba(255, 56, 96, 0.3);
+    color: var(--light);
+}
