@@ -108,7 +108,7 @@ If you have suggestions for improvements or new features, feel free to open an i
 
 ## 📜 License
 
-This project is licensed under the [MIT License](https://github.com/MH4S33B/RandomPass-Pro/blob/main/MIT%20License).
+This project is licensed under the [MIT License](MIT%20License).
 
 ---
 
