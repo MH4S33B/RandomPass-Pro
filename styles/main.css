@@ -1,0 +1,111 @@
+/* Base Styles */
+:root {
+    --primary: #00f0ff;
+    --secondary: #ff00ff;
+    --dark: #0a0a12;
+    --darker: #050508;
+    --light: #e0e0e0;
+    --danger: #ff3860;
+    --warning: #ffcc00;
+    --success: #00ff88;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--dark);
+    color: var(--light);
+    overflow-x: hidden;
+}
+
+/* Particles container */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(to bottom, var(--darker), #0f0f1a);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.social-icon {
+    color: var(--light);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.social-icon::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.social-icon:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+}
+
+.social-icon:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Tooltip for social icons */
+.social-icon {
+    position: relative;
+}
+
+.social-icon .tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--dark);
+    color: var(--light);
+    text-align: center;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 300;
+}
+
+.social-icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
